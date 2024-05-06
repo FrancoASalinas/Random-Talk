@@ -72,6 +72,10 @@ export default {
       padding: dimensionsScale,
       margin: dimensionsScale,
       gap: dimensionsScale,
+      fontFamily: {
+        headline: "Inter Tight",
+        text: "Hanken Grotesk",
+      },
     },
   },
   plugins: [],

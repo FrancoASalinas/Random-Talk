@@ -5,7 +5,7 @@ function Features() {
   );
 
   const FeatureTitle = ({ text }: { text: string }) => (
-    <h2 className='text-6 font-medium mt-2'>{text}</h2>
+    <h2 className='text-6 font-medium font-headline mt-2'>{text}</h2>
   );
 
   const Feature = ({ text }: { text: string }) => (
