@@ -1,9 +1,21 @@
 import { render, screen } from "@testing-library/react";
-import {userEvent} from "@testing-library/user-event";
 import App from "../App";
-import { Route, RouterProvider, createMemoryRouter, createRoutesFromElements } from "react-router-dom";
+import {
+  Route,
+  RouterProvider,
+  createMemoryRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
 
-const setup = () => render(<RouterProvider router={createMemoryRouter(createRoutesFromElements(<Route element={<App />} path='/' />), {initialEntries: ['/']})} />)
+const setup = () =>
+  render(
+    <RouterProvider
+      router={createMemoryRouter(
+        createRoutesFromElements(<Route element={<App />} path='/' />),
+        { initialEntries: ["/"] }
+      )}
+    />
+  );
 
 it("Should render 'Random Talk'", () => {
   setup();
@@ -27,7 +39,7 @@ it("Should render first subtitle", () => {
 
 it("Should render first paragraph", () => {
   setup();
-  screen.getByText(/chat with strangers/ig);
+  screen.getByText(/chat with strangers/gi);
 });
 
 it("Should render second subtitle", () => {
@@ -35,18 +47,8 @@ it("Should render second subtitle", () => {
   screen.getByText(/use topics/i);
 });
 
-// it.todo('Should navigate to /sign-up when clicking Getting Started', async () => {
-//   const user = userEvent.setup();
-//   setup();
-//   await user.click(screen.getByText('Get Started'));
-//   await screen.findByText('Register');
-// });
+it("Should render second paragraph", () => {
+  render(<App />);
+  screen.getByText(/connect with people/ig);
+});
 
-// it.todo('Should navigate to /sign-in when clicking I Have An Account', async () => {
-
-// });
-
-// it("Should render second paragraph", () => {
-//   render(<App />);
-//   screen.getByText(/connect with people/ig);
-// });
