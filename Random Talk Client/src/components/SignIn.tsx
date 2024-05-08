@@ -1,22 +1,17 @@
-import CustomInput from "./CustomInput";
 import CustomForm from "../components/CustomForm";
+import CustomInput from "../components/CustomInput";
 import { useReducer } from "react";
 import formReducer from "../lib/formReducer";
 
-function SignUp() {
+function SignIn() {
   const initialState = {
     username: "",
     password: "",
-    confirmPassword: "",
   };
-
-  const [state, dispatch] = useReducer(
-    formReducer<typeof initialState>,
-    initialState
-  );
+  const [state, dispatch] = useReducer(formReducer, initialState);
 
   return (
-    <CustomForm buttonText='Sign Up!' title='Sign Up'>
+    <CustomForm title='Sign In' buttonText='Sign In!'>
       <CustomInput
         onChange={e =>
           dispatch({ type: "changeUsername", nextValue: e.target.value })
@@ -35,16 +30,8 @@ function SignUp() {
         placeholder='pickAH4RD1'
         id='password'
       />
-      <CustomInput
-        onChange={e =>
-          dispatch({ type: "changeConfirmPassword", nextValue: e.target.value })
-        }
-        value={state.confirmPassword}
-        label='Confirm Password'
-        id='confirm-password'
-      />
     </CustomForm>
   );
 }
 
-export default SignUp;
+export default SignIn;

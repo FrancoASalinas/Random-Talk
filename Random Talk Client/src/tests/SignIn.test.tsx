@@ -1,9 +1,9 @@
-import SignUp from "../components/SignUp";
 import TestForm from "./lib/TestForm";
+import SignIn from "../components/SignIn";
 
-const testForm = new TestForm("Sign Up", "Sign Up!", <SignUp />);
+const testForm = new TestForm("Sign In", "Sign In!", <SignIn />);
 
-it("Should render 'Sign Up'", () => testForm.assertRendersTitle());
+it("Should render 'Sign In'", () => testForm.assertRendersTitle());
 
 describe("User Name", () => {
   const label = "User Name";
@@ -18,16 +18,6 @@ describe("Password", () => {
   const label = "Password";
 
   it("Should render password input", () => testForm.assertRendersInput(label));
-
-  it("Should update input value if typing into the input", async () =>
-    await testForm.assertInputGetsValue(label));
-});
-
-describe("Confirm Password", async () => {
-  const label = "Confirm Password";
-
-  it("Should render confirm password input", () =>
-    testForm.assertRendersInput(label));
 
   it("Should update input value if typing into the input", async () =>
     await testForm.assertInputGetsValue(label));

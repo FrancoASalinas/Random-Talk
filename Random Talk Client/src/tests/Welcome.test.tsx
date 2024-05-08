@@ -48,7 +48,16 @@ it("Should render second subtitle", () => {
 });
 
 it("Should render second paragraph", () => {
-  render(<App />);
+  setup();
   screen.getByText(/connect with people/ig);
 });
 
+it("Should render Sign Up", () => {
+  setup();
+  screen.getByText("Sign Up")
+})
+
+it("Should render Sign In", () => {
+  setup();
+  screen.getByText("Sign In")
+})
