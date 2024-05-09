@@ -1,18 +1,28 @@
+import { RefObject, forwardRef, useImperativeHandle, useRef } from "react";
 import PrimaryButton from "./PrimaryButton";
+import SecondaryButton from "./SecondaryButton";
 
-function Buttons() {
-  const SecondaryButton = () => (
-    <button className='text-5 text-gray-800 rounded-full font-medium shadow-[inset_0px_1px_0px_#e0d6f0,_inset_0px_0px_0px_#e0d6f0,_0px_1px_1px_#442475] bg-grape-200 px-3 py-2 focus:shadow-[inset_0px_1px_1px_#7342bd,_inset_0_-1px_1px_#e0d6f0,_0px_0px_0px_#e0d6f0] transition duration-300'>
-      I Have An Account
-    </button>
-  );
+export type ButtonRefs = {
+  primaryButtonRef: RefObject<HTMLButtonElement>
+  secondaryButtonRef: RefObject<HTMLButtonElement>
+}
+
+const Buttons = forwardRef<ButtonRefs>((_, ref) => {
+  
+  const primaryButtonRef = useRef<HTMLButtonElement>(null);
+  const secondaryButtonRef = useRef<HTMLButtonElement>(null)
+  
+  useImperativeHandle(ref, () => ({
+    primaryButtonRef: primaryButtonRef,
+    secondaryButtonRef: secondaryButtonRef
+  }))
 
   return (
     <div className='flex flex-col items-center gap-3'>
-      <PrimaryButton text='Get Started' />
-      <SecondaryButton />
+      <PrimaryButton text='Get Started' ref={primaryButtonRef}/>
+      <SecondaryButton ref={secondaryButtonRef}/>
     </div>
   );
-}
+})
 
 export default Buttons;

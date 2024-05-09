@@ -1,9 +1,10 @@
 import CustomInput from "./CustomInput";
 import CustomForm from "../components/CustomForm";
-import { useReducer } from "react";
+import { forwardRef, useReducer } from "react";
 import formReducer from "../lib/formReducer";
 
-function SignUp() {
+const SignUp = forwardRef<HTMLFormElement>((_, ref) => {
+  
   const initialState = {
     username: "",
     password: "",
@@ -16,7 +17,7 @@ function SignUp() {
   );
 
   return (
-    <CustomForm buttonText='Sign Up!' title='Sign Up'>
+    <CustomForm ref={ref} buttonText='Sign Up!' title='Sign Up'>
       <CustomInput
         onChange={e =>
           dispatch({ type: "changeUsername", nextValue: e.target.value })
@@ -45,6 +46,6 @@ function SignUp() {
       />
     </CustomForm>
   );
-}
+})
 
 export default SignUp;

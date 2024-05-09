@@ -16,7 +16,7 @@ function Features() {
     <div className='text-gray-100'>
       <FeatureTitle text='Have Fun!' />
       <UnderLine />
-      <Feature text='Chat with strangers for around the world in your desired language.' />
+      <Feature text='Chat with strangers from around the world in your desired language.' />
       <FeatureTitle text='Use Topics' />
       <UnderLine />
       <Feature

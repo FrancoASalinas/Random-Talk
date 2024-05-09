@@ -1,9 +1,9 @@
 import CustomForm from "../components/CustomForm";
 import CustomInput from "../components/CustomInput";
-import { useReducer } from "react";
+import { forwardRef, useReducer } from "react";
 import formReducer from "../lib/formReducer";
 
-function SignIn() {
+const SignIn = forwardRef<HTMLFormElement>((_, ref) => {
   const initialState = {
     username: "",
     password: "",
@@ -11,14 +11,14 @@ function SignIn() {
   const [state, dispatch] = useReducer(formReducer, initialState);
 
   return (
-    <CustomForm title='Sign In' buttonText='Sign In!'>
+    <CustomForm title='Sign In' buttonText='Sign In!' ref={ref}>
       <CustomInput
         onChange={e =>
           dispatch({ type: "changeUsername", nextValue: e.target.value })
         }
         value={state.username}
         label='User Name'
-        placeholder='a_good_name'
+        placeholder='your_user_name'
         id='user-name'
       />
       <CustomInput
@@ -27,11 +27,11 @@ function SignIn() {
         }
         value={state.password}
         label='Password'
-        placeholder='pickAH4RD1'
+        placeholder='catslover3059'
         id='password'
       />
     </CustomForm>
   );
-}
+})
 
 export default SignIn;
