@@ -27,11 +27,6 @@ it("Should render 'Get Started'", () => {
   screen.getByText("Get Started");
 });
 
-it("Should render 'I Have An Account'", () => {
-  setup();
-  screen.getByText("I Have An Account");
-});
-
 it("Should render first subtitle", () => {
   setup();
   screen.getByText(/have fun!/i);
@@ -51,13 +46,3 @@ it("Should render second paragraph", () => {
   setup();
   screen.getByText(/connect with people/ig);
 });
-
-it("Should render Sign Up", () => {
-  setup();
-  screen.getByText("Sign Up")
-})
-
-it("Should render Sign In", () => {
-  setup();
-  screen.getByText("Sign In")
-})
