@@ -1,19 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import App from "../App";
-import {
-  Route,
-  RouterProvider,
-  createMemoryRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import routes from "../lib/routes";
 
 const setup = () =>
   render(
     <RouterProvider
-      router={createMemoryRouter(
-        createRoutesFromElements(<Route element={<App />} path='/' />),
-        { initialEntries: ["/"] }
-      )}
+      router={createMemoryRouter(routes, { initialEntries: ["/"] })}
     />
   );
 
@@ -44,5 +36,5 @@ it("Should render second subtitle", () => {
 
 it("Should render second paragraph", () => {
   setup();
-  screen.getByText(/connect with people/ig);
+  screen.getByText(/connect with people/gi);
 });
