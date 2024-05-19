@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 function Chat() {
   const [inputText, setInputText] = useState("");
@@ -17,6 +18,7 @@ function Chat() {
         ))}
       </div>
       <input
+      data-test-id="chat-input"
         type='text'
         placeholder='Type something...'
         value={inputText}
